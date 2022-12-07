@@ -1,26 +1,56 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
-function App() {
+
+import { useAuthState } from "react-firebase-hooks/auth";
+import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import Chat from './components/Chat';
+import ChatInput from './components/ChatInput';
+import { firebaseAuth } from './firebase';
+
+
+export default function App() {
+
+  const [user] = useAuthState(firebaseAuth);
+
+  const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(firebaseAuth, provider);
+  };
+
+  const logOut = () => {
+    signOut(firebaseAuth);
+  }
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h3>ReactChatApp</h3>
+        {
+          user?
+          <button className='btn btn-logout' onClick={logOut}>Logout</button>
+          :<button className='btn btn-logout' onClick={signInWithGoogle}>Login</button>
+        }
       </header>
+      {
+        user?
+        (
+          <>
+            <div className="chat-body">
+              <Chat/>
+            </div>
+            <div className="chat-input">
+              <ChatInput/>
+            </div>
+          </>
+        ):
+        (
+          <div>
+            <p>Please Login to Continue</p>
+          </div>
+        )
+      }
     </div>
   );
 }
-
-export default App;
