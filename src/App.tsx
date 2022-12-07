@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.scss';
 
-
 import { useAuthState } from "react-firebase-hooks/auth";
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import Chat from './components/Chat';

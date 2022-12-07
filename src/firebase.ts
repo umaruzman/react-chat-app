@@ -3,13 +3,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 export const firebaseApp = initializeApp({
-    apiKey: "AIzaSyC8hO9gIfZ1W5Bt3YRxoGjHFz6KdrgmBqQ",
-    authDomain: "reactchatapp-8f6a0.firebaseapp.com",
-    projectId: "reactchatapp-8f6a0",
-    storageBucket: "reactchatapp-8f6a0.appspot.com",
-    messagingSenderId: "1606098433",
-    appId: "1:1606098433:web:d4f548a7abdcf5d5ce2a00",
-    measurementId: "G-L8JERL1LN7"
+    apiKey: "AIzaSyCG7t_9H1UMb9yzqHKYwCiM0yd3zhs3xf4",
+    authDomain: "newreactchatapp.firebaseapp.com",
+    projectId: "newreactchatapp",
+    storageBucket: "newreactchatapp.appspot.com",
+    messagingSenderId: "98515515784",
+    appId: "1:98515515784:web:3124cf1487791a5bd0e23d",
+    measurementId: "G-DZRV86N7ZT"
 });
 
 export const firebaseAuth = getAuth(firebaseApp);

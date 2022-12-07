@@ -1,6 +1,6 @@
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { firebaseApp, firebaseAuth, firestore } from '../firebase';
+import { firebaseAuth, firestore } from '../firebase';
 
 export default function ChatInput() {
 
